@@ -1,10 +1,8 @@
-// next.config.mjs
 import { setupDevPlatform } from '@cloudflare/next-on-pages/next-dev';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone', // Энийг нэмээрэй
-  // бусад тохиргоо...
+  // Cloudflare Pages-д standalone хэрэггүй, учир нь бид edge runtime ашиглана
 };
 
 export default (async () => {

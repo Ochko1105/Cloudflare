@@ -17,6 +17,7 @@ export default function Home() {
   const [todos, setTodos] = useState<Todo[]>([])
   const [title, setTitle] = useState('')
   const [loading, setLoading] = useState(false)
+  const [isLongPress, setIsLongPress] = useState(false);
   const [draggedItemIndex, setDraggedItemIndex] = useState<number | null>(null);
 
   // --- Drag and Drop Логик ---
@@ -40,19 +41,8 @@ export default function Home() {
 
   const onDragEnd = () => {
     setDraggedItemIndex(null);
-    console.log("Шинэ дараалал хадгалахад бэлэн:", todos);
+    setIsLongPress(false);
   };
-
-  // --- Console Log Style ---
-  const logGraphQL = (action: string, query: string, data?: unknown) => {
-    console.group(`🚀 GraphQL ${action}`);
-    console.log('%c Query:', 'color: #007bff; font-weight: bold', query);
-    if (data) {
-      console.log('%c Response Data:', 'color: #28a745; font-weight: bold');
-      console.table(data);
-    }
-    console.groupEnd();
-  }
 
   // --- API Функцүүд ---
   const fetchTodos = async () => {
@@ -64,10 +54,7 @@ export default function Home() {
         body: JSON.stringify({ query }),
       });
       const json = (await res.json()) as GraphQLResponse<{ todos: Todo[] }>;
-      if (json.data) {
-        setTodos(json.data.todos);
-        logGraphQL('Fetching', query, json.data.todos);
-      }
+      if (json.data) setTodos(json.data.todos);
     } catch (err) {
       console.error("Fetch error:", err);
     }
@@ -77,7 +64,6 @@ export default function Home() {
     if (!title.trim()) return;
     setLoading(true);
     const query = `mutation { addTodo(title: "${title}") { id title completed } }`;
-    
     try {
       const res = await fetch('/api/graphql', {
         method: 'POST',
@@ -86,7 +72,6 @@ export default function Home() {
       });
       const json = (await res.json()) as GraphQLResponse<{ addTodo: Todo }>;
       if (json.data?.addTodo) {
-        logGraphQL('Added', query, json.data.addTodo);
         setTitle('');
         await fetchTodos();
       }
@@ -104,7 +89,6 @@ export default function Home() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ query }),
     });
-    logGraphQL('Toggled', query);
     await fetchTodos();
   }
 
@@ -115,7 +99,6 @@ export default function Home() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ query }),
     });
-    logGraphQL('Deleted', query);
     await fetchTodos();
   }
 
@@ -128,13 +111,13 @@ export default function Home() {
       <div className="max-w-md mx-auto bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
         <div className="bg-blue-600 p-6 text-white text-center">
           <h1 className="text-2xl font-bold tracking-tight">GraphQL Todo</h1>
-          <p className="text-blue-100 text-sm mt-1">Cloudflare D1 + Drizzle ORM</p>
+          <p className="text-blue-100 text-sm mt-1">Cloudflare D1 + Next-on-Pages</p>
         </div>
 
         <div className="p-6">
           <div className="flex gap-2 mb-8">
             <input 
-              className="flex-1 px-4 py-2.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-gray-700"
+              className="flex-1 px-4 py-2.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all text-gray-700"
               placeholder="Шинэ ажил нэмэх..."
               value={title} 
               onChange={(e) => setTitle(e.target.value)} 
@@ -154,24 +137,28 @@ export default function Home() {
               todos.map((t, index) => (
                 <div 
                   key={t.id}
-                  draggable
+                  draggable={isLongPress}
+                  // Хамгийн том div дээр дарахад toggle хийнэ
+                  onClick={() => toggleTodo(t.id)}
+                  onMouseDown={() => {
+                    const timer = setTimeout(() => setIsLongPress(true), 250);
+                    window.addEventListener('mouseup', () => {
+                      clearTimeout(timer);
+                    }, { once: true });
+                  }}
                   onDragStart={() => onDragStart(index)}
                   onDragOver={(e) => onDragOver(e, index)}
                   onDragEnd={onDragEnd}
                   className={`
                     flex items-center justify-between p-4 rounded-xl border 
-                    transition-all duration-300 ease-in-out
-                    cursor-grab active:cursor-grabbing active:scale-[1.02] active:shadow-lg
-                    group
-                    ${
-                      draggedItemIndex === index 
-                        ? 'bg-blue-50 border-blue-400 opacity-40 scale-95' 
-                        : 'bg-white border-gray-100 hover:border-blue-300 hover:shadow-md'
-                    }
+                    transition-all duration-300 select-none
+                    ${isLongPress ? 'cursor-grabbing scale-[1.02] shadow-lg border-blue-400' : 'cursor-pointer hover:border-blue-300'}
+                    ${draggedItemIndex === index ? 'bg-blue-50 opacity-40' : 'bg-white'}
                   `}
                 >
                   <div className="flex items-center gap-4">
-                    <div className="text-gray-300 group-hover:text-gray-400 transition-colors">
+                    {/* Drag Handle дүрс */}
+                    <div className="text-gray-300">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <circle cx="9" cy="5" r="1"/><circle cx="9" cy="12" r="1"/><circle cx="9" cy="19" r="1"/>
                         <circle cx="15" cy="5" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="19" r="1"/>
@@ -180,35 +167,33 @@ export default function Home() {
 
                     <input 
                       type="checkbox" 
-                      className="w-5 h-5 rounded-md border-gray-300 text-blue-600 focus:ring-blue-500 cursor-pointer"
+                      readOnly
+                      className="w-5 h-5 rounded-md border-gray-300 text-blue-600 focus:ring-blue-500 pointer-events-none"
                       checked={t.completed} 
-                      onChange={() => toggleTodo(t.id)} 
                     />
+                    
                     <span className={`font-medium transition-all ${t.completed ? 'line-through text-gray-400' : 'text-gray-700'}`}>
                       {t.title}
                     </span>
                   </div>
                   
                   <button 
-                    className="text-gray-400 hover:text-red-500 p-1 md:opacity-0 group-hover:opacity-100 transition-all"
-                    onClick={() => deleteTodo(t.id)}
+                    className="text-gray-400 hover:text-red-500 p-2 transition-all active:scale-90"
+                    onClick={(e) => {
+                      e.stopPropagation(); // Div-ийн onClick-ийг ажиллуулахгүй байх
+                      deleteTodo(t.id);
+                    }}
                   >
                     Устгах
                   </button>
                 </div>
               ))
             ) : (
-              <div className="text-center py-10">
-                <p className="text-gray-400 italic">Жагсаалт хоосон байна ✨</p>
+              <div className="text-center py-10 text-gray-400 italic">
+                Жагсаалт хоосон байна ✨
               </div>
             )}
           </div>
-        </div>
-        
-        <div className="bg-gray-50 px-6 py-4 border-t border-gray-100 text-center">
-          <p className="text-xs text-gray-400">
-            F12 дарж Console-оос датаг хараарай
-          </p>
         </div>
       </div>
     </div>

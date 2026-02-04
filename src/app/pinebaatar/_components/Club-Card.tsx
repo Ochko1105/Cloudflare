@@ -82,10 +82,10 @@ const isBanned = !!club.bannedUntil && club.bannedUntil > Date.now();
             <DoorOpen className={cn("h-4 w-4", isBanned ? "text-red-500/70" : club.isEnrolled ? "text-emerald-500/70" : "text-primary/70")} />
             <span className="font-medium">{club.class}-р өрөө</span>
           </div>
-          <div className="flex items-center gap-2 text-sm text-white/50">
+          {/* <div className="flex items-center gap-2 text-sm text-white/50">
             <BookOpen className={cn("h-4 w-4", isBanned ? "text-red-500/70" : club.isEnrolled ? "text-emerald-500/70" : "text-primary/70")} />
             <span className="truncate italic">{club.topic}</span>
-          </div>
+          </div> */}
         </div>
 
         <div className="mt-4 flex -space-x-2">

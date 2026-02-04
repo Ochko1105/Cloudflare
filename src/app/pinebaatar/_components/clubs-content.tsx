@@ -2,9 +2,9 @@
 
 import { useState, useMemo, useEffect } from "react"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { ClubCard } from "./clubcard"
+
 import { clubs as initialClubs } from "@/lib/mockdata"
-import { ClubDetails } from "./clubdetail"
+import { ClubDetails } from "./Club-Detail"
 import { motion, AnimatePresence } from "framer-motion"
 import { toast } from "sonner"
 import {
@@ -17,6 +17,8 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog"
+import { ClubCard } from "./Club-Card"
+
 
 export function ClubsContent() {
   const [allClubs, setAllClubs] = useState(

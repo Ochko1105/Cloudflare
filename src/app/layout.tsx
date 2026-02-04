@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Т.Цэцэг-Өлзий Оч-Эрдэнэ - Програм хангамжийн хөгжүүлэгч",
+  title: "Програм хангамжийн хөгжүүлэгч",
   description: "Fullstack хөгжүүлэгч - UI/UX, backend логик, authentication",
   generator: "v0.app",
   icons: {

@@ -5,15 +5,17 @@ import { motion, AnimatePresence } from "framer-motion"
 import { 
   GraduationCap, 
   Briefcase,
-  ShieldCheck, // Admin-д зориулсан icon
-  LayoutDashboard
+
 } from "lucide-react"
 
-import { ClubsContent } from "./_components/clubs-content"
-import { DashboardHeader } from "./_components/header"
-import { DashboardSidebar } from "./_components/siderbar"
-import { CreateClubCenter } from "./_components/createclubview"
-import { AdminClubsView } from "./_components/AdminClubView"
+
+import { DashboardHeader } from "./_components/General-Header"
+
+import { CreateClubCenter } from "./_components/Create-Club-View"
+import { AdminClubsView } from "./_components/Admin-Club-View"
+import { ClubsContent } from "./_components/Clubs-Content"
+import { DashboardSidebar } from "./_components/Siderbar"
+
 
 /**
  * --- ADMIN CLUBS VIEW ---

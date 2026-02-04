@@ -11,7 +11,7 @@ interface InstructorProps {
     role: string;
   };
   isMultiple: boolean;
-  isFullWidth?: boolean; // 3 дахь багш доор ганцаараа байх үед ашиглана
+  isFullWidth?: boolean; 
 }
 
 export const InstructorCard = ({ instructor, isMultiple, isFullWidth }: InstructorProps) => {

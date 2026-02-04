@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { ShieldCheck, Calendar, Users, CheckCircle2, LogOut, Timer } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { InstructorCard } from "./instructorcard"
+import { InstructorCard } from "./Instructor-Card"
 import { Club } from "@/lib/type"
 import { cn } from "lib/utils"
 

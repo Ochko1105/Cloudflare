@@ -20,7 +20,7 @@ export function DashboardHeader() {
         {/* Fire/Streak */}
         <div className="flex items-center gap-1.5 rounded-full bg-secondary px-3 py-1.5">
           <span className="text-orange-500">🔥</span>
-          <span className="text-sm font-medium text-foreground">0</span>
+          <span className="text-sm font-medium text-foreground">153</span>
         </div>
 
         {/* Coins */}

@@ -89,6 +89,14 @@ const navItems: NavItem[] = [
       { label: "Join Club" },
     ]
   },
+  { 
+    label: "Admin Section", 
+    icon: <ShieldAlert className="h-5 w-5 text-amber-400" />, 
+    children: [
+      { label: "Admin Clubs" }, // Dashboard дээрх case "Admin Clubs" хэсэгтэй яг ижил нэртэй байх ёстой
+    //   { label: "User Management" },
+    ]
+  },
 ];
 
 export function DashboardSidebar({ onViewChange, currentActive }: SidebarProps) {
@@ -103,7 +111,7 @@ export function DashboardSidebar({ onViewChange, currentActive }: SidebarProps) 
   }
 
   return (
-    <aside className="fixed left-0 top-0 z-40 flex h-screen w-64 flex-col bg-sidebar border-r border-sidebar-border bg-[radial-gradient(circle_at_80%_15%,rgba(90,160,255,0.25),transparent_45%),radial-gradient(circle_at_15%_85%,rgba(120,255,200,0.18),transparent_55%),linear-gradient(135deg,#050c1f,#0b2b5c)] shadow-2xl">
+    <aside className="fixed left-0 top-0 z-40 flex h-[1440px] w-64 flex-col bg-sidebar border-r border-sidebar-border bg-[radial-gradient(circle_at_80%_15%,rgba(90,160,255,0.25),transparent_45%),radial-gradient(circle_at_15%_85%,rgba(120,255,200,0.18),transparent_55%),linear-gradient(135deg,#050c1f,#0b2b5c)] shadow-2xl">
       
       {/* --- LOGO SECTION --- */}
       <div className="flex items-center gap-3 px-6 py-8 border-b border-white/5">

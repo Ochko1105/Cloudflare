@@ -6,7 +6,8 @@ import {
   Globe2, UserCheck, MoveDownIcon
 } from 'lucide-react'
 import { Button } from "@/components/ui/button"
-import { LogisticsSection } from './Calendar-Club'
+import { LogisticsSection } from './Calendar-club'
+
 
 
 interface ClubFormProps {

@@ -7,22 +7,11 @@ import {
   Briefcase,
 
 } from "lucide-react"
-
-
 import { DashboardHeader } from "./_components/General-Header"
-
 import { CreateClubCenter } from "./_components/Create-Club-View"
 import { AdminClubsView } from "./_components/Admin-Club-View"
+import { DashboardSidebar } from "./_components/Main-SiderBar"
 import { ClubsContent } from "./_components/Clubs-Content"
-import { DashboardSidebar } from "./_components/Siderbar"
-
-
-/**
- * --- ADMIN CLUBS VIEW ---
- * Админууд клубын хүсэлтүүдийг хянах хэсэг
- */
-
-
 const AcademicView = () => (
   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="p-10 text-white">
     <GraduationCap className="h-12 w-12 text-primary mb-4" />

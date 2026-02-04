@@ -12,7 +12,7 @@ import {
   Settings, 
   LogOut, 
 
-  Rocket,
+
   ShieldAlert,
  
 } from "lucide-react"
@@ -111,21 +111,6 @@ export function DashboardSidebar({ onViewChange, currentActive }: SidebarProps) 
   return (
     <aside className="fixed left-0 top-0 z-40 flex h-[1440px] w-64 flex-col bg-sidebar border-r border-sidebar-border bg-[radial-gradient(circle_at_80%_15%,rgba(90,160,255,0.25),transparent_45%),radial-gradient(circle_at_15%_85%,rgba(120,255,200,0.18),transparent_55%),linear-gradient(135deg,#050c1f,#0b2b5c)] shadow-2xl">
       
-      {/* --- LOGO SECTION --- */}
-      {/* <div className="flex items-center gap-3 px-6 py-8 border-b border-white/5">
-        <div className="relative group">
-          <div className="absolute -inset-1 bg-gradient-to-r from-primary to-blue-600 rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000"></div>
-          <div className="relative flex h-12 w-12 items-center justify-center bg-black rounded-xl border border-white/10">
-            <Rocket className="h-6 w-6 text-primary animate-pulse" />
-          </div>
-        </div>
-        <div>
-          <h1 className="text-xl font-black text-white tracking-tighter leading-none">Talent</h1>
-          <p className="text-[10px] font-bold text-primary tracking-[0.3em]">Baatars</p>
-        </div>
-      </div> */}
-
-      {/* --- NAVIGATION CONTENT --- */}
       <div className="flex-1 overflow-y-auto px-4 py-6 scrollbar-hide">
      
         

@@ -11,7 +11,8 @@ import { DashboardHeader } from "./_components/General-Header"
 import { CreateClubCenter } from "./_components/Create-Club-View"
 import { AdminClubsView } from "./_components/Admin-Club-View"
 import { DashboardSidebar } from "./_components/Main-SiderBar"
-import { ClubsContent } from "./_components/Clubs-Content"
+import { ClubsContent } from "./_components/clubs-content"
+
 const AcademicView = () => (
   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="p-10 text-white">
     <GraduationCap className="h-12 w-12 text-primary mb-4" />
@@ -51,7 +52,7 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="max-h-[1440px] mx-auto bg-[#050c1f] selection:bg-primary selection:text-white">
+    <div className="max-h-360 mx-auto bg-[#050c1f] selection:bg-primary selection:text-white">
       {/* Background хэсэг хэвээрээ... */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_15%,rgba(90,160,255,0.15),transparent_45%)]" />

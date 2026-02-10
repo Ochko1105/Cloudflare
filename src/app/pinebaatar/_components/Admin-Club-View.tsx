@@ -54,7 +54,7 @@ export const AdminClubsView = () => {
               className={cn(
                 "group relative overflow-hidden rounded-[2rem] border transition-all duration-500",
                 isExpanded ? "bg-white/10 border-white/20 shadow-2xl" : "bg-white/5 border-white/5 hover:border-white/10",
-                isPrimary && !isExpanded && "border-amber-400/30 bg-amber-400/[0.02]"
+                isPrimary && !isExpanded && "border-amber-400/30 bg-amber-400/2"
               )}
             >
               {/* Indicator Line */}

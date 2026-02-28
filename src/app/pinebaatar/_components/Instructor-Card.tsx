@@ -55,7 +55,7 @@ export const InstructorCard = ({ instructor, isMultiple, isFullWidth }: Instruct
           </span>
         </div>
         <h3 className={cn(
-          "font-black italic uppercase tracking-tighter text-foreground leading-tight truncate mb-1",
+          "font-black  uppercase tracking-tighter text-foreground leading-tight truncate mb-1",
           isMultiple && !isFullWidth ? "text-lg" : "text-2xl"
         )}>
           {instructor.name}

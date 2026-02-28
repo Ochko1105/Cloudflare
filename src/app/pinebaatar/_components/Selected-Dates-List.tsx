@@ -14,6 +14,6 @@ export const SelectedDatesList = ({ dates, onRemove }: { dates: Date[], onRemove
         </motion.span>
       ))}
     </AnimatePresence>
-    {dates.length === 0 && <p className="text-[10px] text-white/10 italic">Өдөр сонгогдоогүй...</p>}
+    {dates.length === 0 && <p className="text-[10px] text-white/10">Өдөр сонгогдоогүй...</p>}
   </div>
 );

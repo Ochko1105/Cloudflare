@@ -189,7 +189,7 @@ export default function Home() {
                 </div>
               ))
             ) : (
-              <div className="text-center py-10 text-gray-400 italic">
+              <div className="text-center py-10 text-gray-400">
                 Жагсаалт хоосон байна ✨
               </div>
             )}

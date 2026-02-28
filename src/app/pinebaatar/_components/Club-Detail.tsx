@@ -51,7 +51,7 @@ export const ClubDetails = ({
             {/* Goal Section */}
             <div className="mb-8 border-l-2 border-primary/30 pl-6">
               <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-2">Зорилго</h4>
-              <p className="text-lg italic text-muted-foreground leading-relaxed">
+              <p className="text-lg  text-muted-foreground leading-relaxed">
                 "{selectedClub.description}"
               </p>
             </div>

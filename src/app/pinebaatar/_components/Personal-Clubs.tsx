@@ -14,7 +14,7 @@ export const MyClubsList = () => {
           <div className="flex items-center gap-4">
             <div className="h-12 w-12 rounded-xl bg-primary flex items-center justify-center text-white font-black shadow-lg shadow-primary/20">{club.name[0]}</div>
             <div>
-              <h4 className="font-black text-white italic">{club.name}</h4>
+              <h4 className="font-black text-white">{club.name}</h4>
               <p className="text-[10px] text-white/40 uppercase tracking-widest">{club.members} Гишүүд • {club.category}</p>
             </div>
           </div>

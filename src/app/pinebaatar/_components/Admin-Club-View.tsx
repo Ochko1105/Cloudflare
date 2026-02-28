@@ -32,7 +32,7 @@ export const AdminClubsView = () => {
       {/* Header */}
       <div className="flex items-center justify-between mb-12">
         <div>
-          <h2 className="text-4xl font-black uppercase tracking-tighter italic flex items-center gap-3">
+          <h2 className="text-4xl font-black uppercase tracking-tighter  flex items-center gap-3">
             <ShieldCheck className="h-10 w-10 text-primary" /> Admin Clubs
           </h2>
           <p className="text-white/50 mt-2 font-medium">Шинээр үүсгэх хүсэлтүүдийг хянах хэсэг.</p>
@@ -76,7 +76,7 @@ export const AdminClubsView = () => {
                       </span>
                     </div>
                     <div>
-                      <h3 className={cn("text-xl font-black italic uppercase tracking-tight")}>
+                      <h3 className={cn("text-xl font-black uppercase tracking-tight")}>
                         {req.name}
                       </h3>
                       <p className="text-xs text-white/40 font-bold uppercase tracking-widest">{req.leader}</p>
@@ -136,7 +136,7 @@ export const AdminClubsView = () => {
                         <div className="space-y-6">
                           <div>
                             <p className="text-[10px] font-black text-white/20 uppercase tracking-[0.2em] mb-3">Клубын Зорилго</p>
-                            <p className="text-sm text-white/70 leading-relaxed italic">{req.goal}</p>
+                            <p className="text-sm text-white/70 leading-relaxed ">{req.goal}</p>
                           </div>
                           <div className="grid grid-cols-2 gap-4">
                             <DetailTile icon={<Clock size={14}/>} label="Schedule" value={req.time} />

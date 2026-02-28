@@ -11,7 +11,7 @@ export const SystemTip = () => (
       </div>
       <div className="space-y-2">
         <p className="text-xs text-white/70 leading-relaxed font-bold uppercase tracking-widest">Хуваарь баталгаажуулалт</p>
-        <p className="text-[11px] text-white/40 leading-relaxed italic">Систем таны сонгосон олон өдрүүдийн давхцлыг шалгаж байна.</p>
+        <p className="text-[11px] text-white/40 leading-relaxed">Систем таны сонгосон олон өдрүүдийн давхцлыг шалгаж байна.</p>
       </div>
     </div>
   </div>

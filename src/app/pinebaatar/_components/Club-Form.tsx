@@ -53,7 +53,7 @@ export const ClubForm = ({
                   type="text"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full bg-black/40 border border-white/10 rounded-2xl px-6 py-4 text-white outline-none focus:ring-2 focus:ring-primary/50 transition-all font-bold italic"
+                  className="w-full bg-black/40 border border-white/10 rounded-2xl px-6 py-4 text-white outline-none focus:ring-2 focus:ring-primary/50 transition-all font-bold "
                   placeholder="Wizards Club..."
                 />
               </div>
@@ -124,7 +124,7 @@ export const ClubForm = ({
 
           {/* Goal Section */}
           <div className="space-y-3">
-            <label className="text-[10px] font-black uppercase tracking-[0.3em] text-primary italic">Клубын зорилго</label>
+            <label className="text-[10px] font-black uppercase tracking-[0.3em] text-primary ">Клубын зорилго</label>
             <textarea
               rows={2}
               value={formData.goal}

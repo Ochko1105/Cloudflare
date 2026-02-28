@@ -84,7 +84,7 @@ const isBanned = !!club.bannedUntil && club.bannedUntil > Date.now();
           </div>
           {/* <div className="flex items-center gap-2 text-sm text-white/50">
             <BookOpen className={cn("h-4 w-4", isBanned ? "text-red-500/70" : club.isEnrolled ? "text-emerald-500/70" : "text-primary/70")} />
-            <span className="truncate italic">{club.topic}</span>
+            <span className="truncate ">{club.topic}</span>
           </div> */}
         </div>
 

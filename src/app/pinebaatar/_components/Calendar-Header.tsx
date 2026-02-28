@@ -19,7 +19,7 @@ export const CalendarHeader = ({ currentMonth, onMonthChange }: CalendarHeaderPr
         <ChevronLeft size={20} />
       </button>
       
-      <span className="text-[11px] font-black text-white uppercase tracking-[0.2em] font-mono italic">
+      <span className="text-[11px] font-black text-white uppercase tracking-[0.2em] font-mono ">
         {currentMonth.toLocaleString('mn-MN', { month: 'long', year: 'numeric' })}
       </span>
       

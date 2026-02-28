@@ -61,7 +61,7 @@ export const LogisticsSection = (props: LogisticsSectionProps) => {
           <CalendarDays size={16} /> Хуваарь ба Логистик
         </h4>
         <div className="flex items-center gap-4">
-          <span className="text-[10px] font-bold text-emerald-400 italic uppercase">
+          <span className="text-[10px] font-bold text-emerald-400  uppercase">
             {selectedDates.length} өдөр сонгосон
           </span>
           <button onClick={() => {setSelectedDates([]); setFormData({...formData, repeat: 'none'})}} className="p-1.5 rounded-lg bg-white/5 text-white/40 hover:text-red-400 transition-all">

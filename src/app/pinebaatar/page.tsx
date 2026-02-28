@@ -16,7 +16,7 @@ import { ClubsContent } from "./_components/clubs-content"
 const AcademicView = () => (
   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="p-10 text-white">
     <GraduationCap className="h-12 w-12 text-primary mb-4" />
-    <h2 className="text-3xl font-black uppercase tracking-tighter italic">Академик Сургалт</h2>
+    <h2 className="text-3xl font-black uppercase tracking-tighter ">Академик Сургалт</h2>
     {/* ... өмнөх код ... */}
   </motion.div>
 )
@@ -24,7 +24,7 @@ const AcademicView = () => (
 const CareerResources = () => (
   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="p-10 text-white">
     <Briefcase className="h-12 w-12 text-emerald-400 mb-4" />
-    <h2 className="text-3xl font-black uppercase tracking-tighter italic">Карьер Хөгжил</h2>
+    <h2 className="text-3xl font-black uppercase tracking-tighter ">Карьер Хөгжил</h2>
     {/* ... өмнөх код ... */}
   </motion.div>
 )
@@ -46,7 +46,7 @@ export default function Dashboard() {
       case "Courses":
       case "Academic": return <AcademicView />
       case "Resources": return <CareerResources />
-      case "Active": return <div className="p-10 text-white font-black italic text-4xl">ACTIVE CHALLENGES</div>
+      case "Active": return <div className="p-10 text-white font-black  text-4xl">ACTIVE CHALLENGES</div>
       default: return <ClubsContent />
     }
   }
